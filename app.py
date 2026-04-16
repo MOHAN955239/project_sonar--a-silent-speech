@@ -29,7 +29,7 @@ from collections import Counter
 sys.path.insert(0, os.path.dirname(__file__))
 from model_utils import load_model, predict, get_channel_importance, PRETRAINED_TRANSDUCTION
 
-# Matches subsampled EMG rate used in read_emg.py (pipeline); STFT axis labels assume this Fs.
+# Sample rate (Hz) used for spectrogram time axis labeling — keep consistent for comparable plots.
 EMG_SAMPLE_RATE_HZ = 689.06
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -319,7 +319,7 @@ with st.sidebar:
                 st.error("Could not load the checkpoint. Fix the error below or use Demo mode.")
                 st.code(detail, language="text")
             else:
-                st.caption("Place pretrained weights and install PyTorch — see README / Zenodo for the official release.")
+                st.caption("Install PyTorch and add weights under `pretrained_models/` — see README.")
 
     st.divider()
     with st.expander("⚙️ Signal", expanded=True):
@@ -392,7 +392,7 @@ with hc1:
       </div>
       <span class="app-hero-tagline">Silent EMG → Speech AI</span>
       <p class="app-hero-meta">
-        Research-grade silent speech recognition · Explainable AI · AAC interface
+        Silent-speech visualization · Explainable-style panels · AAC interface
       </p>
     </div>""", unsafe_allow_html=True)
 with hc2:
@@ -412,7 +412,7 @@ with st.expander("🏆 For judges — pitch, impact & what to click", expanded=T
 explainability-style context, and an **AAC + text-to-speech** path for urgent communication scenarios.
 
 **Why it matters:** Surfaces a hard problem (silent speech is invisible) into visuals judges can follow in under a minute,
-with a credible link to published **Voicing Silent Speech** research.
+with prediction confidence and exportable session logs.
 
 **Click path (live):** Signal panels → **Predict** → scroll to **AAC** → **Speak** → **Export CSV/JSON** (sidebar).
 
@@ -511,7 +511,7 @@ with r2c1:
     ax_sp.set_xlabel("Time (s)", color="#8892b0", fontsize=7.5)
     ax_sp.tick_params(colors="#8892b0", labelsize=7)
     ax_sp.set_title("EMG Spectrogram – Channel 1", color="#ccd6f6", fontsize=9)
-    st.caption(f"STFT uses Fs = {EMG_SAMPLE_RATE_HZ:.2f} Hz (same scale as the project’s EMG pipeline). Synthetic demo data may not match real articulatory EMG.")
+    st.caption(f"STFT uses Fs = {EMG_SAMPLE_RATE_HZ:.2f} Hz for axis labeling. Synthetic demo data may not match real articulatory EMG.")
     st.pyplot(fig_sp, use_container_width=True)
     plt.close(fig_sp)
 
@@ -759,5 +759,5 @@ st.divider()
 st.markdown("""
 <div style="text-align:center;color:#3d4f6e;font-size:.73rem;padding:6px 8px 8px;line-height:1.45">
   <strong style="color:#5a6d8f">Project Sonar</strong> — accessibility-minded silent-speech interface demo<br>
-  <span style="font-size:.7rem">Streamlit · PyTorch · EMNLP 2020 silent-speech lineage · Session export for judging</span>
+  <span style="font-size:.7rem">Streamlit · PyTorch · Session export for judging</span>
 </div>""", unsafe_allow_html=True)

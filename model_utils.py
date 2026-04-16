@@ -12,7 +12,7 @@ import sys
 import pickle
 import numpy as np
 
-# ── Model paths (populated after Zenodo extract) ──────────────────────────────
+# ── Model paths (place checkpoints locally; see README) ───────────────────────
 PRETRAINED_TRANSDUCTION = os.path.join(os.path.dirname(__file__), "pretrained_models", "transduction_model.pt")
 PRETRAINED_HIFIGAN      = os.path.join(os.path.dirname(__file__), "pretrained_models", "hifigan", "checkpoint")
 NORMALIZERS_PATH        = os.path.join(os.path.dirname(__file__), "normalizers.pkl")

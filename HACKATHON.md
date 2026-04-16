@@ -1,6 +1,6 @@
 # Project Sonar — Hackathon pack
 
-Use this file for **slides, judging Q&A, and rehearsal**. The upstream repo is research code for *Voicing Silent Speech* (EMNLP 2020); **Project Sonar** is the Streamlit dashboard (`app.py`) built on top for demos.
+Use this file for **slides, judging Q&A, and rehearsal** for **Project Sonar** (`app.py`).
 
 ## One-line pitch
 
@@ -53,16 +53,16 @@ Use this for a **≤2:00** submission or pitch recording. Read at a calm pace (~
 “Hi — this is **Project Sonar**: a dashboard for **silent speech**. People who can’t speak aloud still produce tiny muscle signals — EMG — but that signal is invisible and hard to interpret. We turn it into something **visual, interactive, and actionable**.”
 
 **0:20 – 0:45 | Signal wall**  
-“Here’s the **multi-channel EMG-style view** — you see energy over time per channel. Beside it, **RMS power** tells you which channels carry more of the signal. The **spectrogram** shows frequency content — same pipeline scale we use in the research codebase, so the view is consistent with published silent-speech work.”
+“Here’s the **multi-channel EMG-style view** — you see energy over time per channel. Beside it, **RMS power** tells you which channels carry more of the signal. The **spectrogram** shows frequency content for channel one at a fixed sample rate used for consistent axis labels.”
 
 **0:45 – 1:10 | Prediction**  
-“I hit **Predict**. The model assigns a **word hypothesis** and a **confidence score** — so it’s not a black box: you see how sure the system is. In demo mode this is synthetic data; with **real PyTorch weights** loaded, this runs the actual network from the Voicing Silent Speech line of work.”
+“I hit **Predict**. The model assigns a **word hypothesis** and a **confidence score** — so it’s not a black box: you see how sure the system is. In demo mode this is synthetic data; with **real PyTorch weights** loaded, this runs your trained **PyTorch** model.”
 
 **1:10 – 1:40 | XAI + communication**  
 “Below that, we surface **explainability-style context** — which channels dominated this window — and an **AAC-style panel**: quick phrases for urgent needs, a text buffer, and **Speak** so the browser reads the message out loud. That’s the accessibility angle — silent input, **audible output**.”
 
 **1:40 – 2:00 | Impact + close**  
-“We log **session analytics** and export **CSV or JSON** for judges or clinicians. Stack: **Streamlit**, **PyTorch**, built on **EMNLP 2020** silent-speech research. **Project Sonar** — making silent speech **visible** and **usable**. Thanks.”
+“We log **session analytics** and export **CSV or JSON** for judges or clinicians. Stack: **Streamlit** and **PyTorch**. **Project Sonar** — making silent speech **visible** and **usable**. Thanks.”
 
 ### If you run long
 
@@ -103,15 +103,15 @@ Then open **http://localhost:8501**.
 ## Real PyTorch mode (optional, stronger technical score)
 
 1. `pip install torch` (restart Streamlit after install).
-2. Unzip pretrained weights so this path exists: `pretrained_models/transduction_model.pt` (see Zenodo links in the main README).
+2. Place pretrained weights at `pretrained_models/transduction_model.pt` (see README for layout).
 3. Optional: `normalizers.pkl` next to `app.py` if you have training matched normalizers.
 
 ## Tech stack (for judges)
 
 - **UI:** Streamlit  
 - **Model:** PyTorch `Model` from `architecture.py` (when weights load)  
-- **Signal processing:** NumPy / SciPy / Matplotlib; EMG rate aligned to **689.06 Hz** for STFT labels (see `read_emg.py` pipeline)  
-- **Based on:** *Digital Voicing of Silent Speech* (EMNLP 2020) codebase
+- **Signal processing:** NumPy / SciPy / Matplotlib; STFT labels use **689.06 Hz** in the app for consistent frequency axes  
+- **Model:** optional PyTorch weights under `pretrained_models/`
 
 ## Honest limitations (if asked)
 
@@ -124,7 +124,7 @@ Then open **http://localhost:8501**.
 - Silent speech + EMG → understandable dashboard  
 - Prediction + confidence + session analytics  
 - AAC + TTS for communication scenarios  
-- Grounded in published silent-speech research  
+- Clear problem → dashboard → impact story  
 - Extensible to real sensors and full decoding  
 
 Good luck.
