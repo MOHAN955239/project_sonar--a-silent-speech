@@ -1,5 +1,13 @@
 # Voicing Silent Speech
 
+## Project Sonar (Hackathon UI)
+
+This repo includes **Project Sonar**, a Streamlit dashboard (`app.py`) for silent-speech EMG visualization, prediction, explainability-style panels, and an AAC communication interface. **Quick start:** `python -m pip install -r requirements.txt` then `python -m streamlit run app.py`, or run `run_hackathon_demo.ps1` / `run_hackathon_demo.sh`. See **[HACKATHON.md](HACKATHON.md)** for a **2-minute video script** (timestamps + narration), a 60-second live demo, pitch bullets, and optional real-model setup.
+
+**Deploy:** Streamlit apps are **not** a fit for Vercel. Use **[Streamlit Community Cloud](https://share.streamlit.io)** (GitHub + `app.py`) or see **[DEPLOY.md](DEPLOY.md)** for Hugging Face Spaces, Render (Docker), and comparisons.
+
+---
+
 This repository contains code for synthesizing speech audio from silently mouthed words captured with electromyography (EMG).
 It is the official repository for the papers [Digital Voicing of Silent Speech](https://aclanthology.org/2020.emnlp-main.445.pdf) at EMNLP 2020, [An Improved Model for Voicing Silent Speech](https://aclanthology.org/2021.acl-short.23.pdf) at ACL 2021, and the dissertation [Voicing Silent Speech](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2022/EECS-2022-68.pdf).
 The current commit contains only the most recent model, but the versions from prior papers can be found in the commit history.

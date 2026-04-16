@@ -2,6 +2,12 @@
 __pycache__/
 emg_data/
 models/
+# Large / local-only (do not push to GitHub — breaks limits & deploys)
+pretrained_models/
+*.zip
+normalizers.pkl
+.env
+.streamlit/secrets.toml
 deepspeech-0.7.0-models.pbmm
 deepspeech-0.7.0-models.scorer
 lm.binary

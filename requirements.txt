@@ -1,0 +1,9 @@
+streamlit>=1.32.0
+pandas
+numpy
+matplotlib
+scipy
+soundfile
+tqdm
+absl-py
+torch>=2.0.0
